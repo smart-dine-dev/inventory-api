@@ -15,6 +15,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 public class StockReceiptItem {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "stock_receipt_id", nullable = false)
@@ -22,12 +24,18 @@ public class StockReceiptItem {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
+    @Column(nullable = false)
     private Integer orderedQuantity;
+    @Column(nullable = false)
     private Integer receivedQuantity;
+    @Column(precision = 10, scale = 2)
     private BigDecimal unitCost;
+    @Column(precision = 10, scale = 2)
     private BigDecimal totalCost;
     private LocalDate expiryDate;
+    @Column(length = 10)
     private String batchNumber;
+    @Column(length = 300)
     private String notes;
 
 }
