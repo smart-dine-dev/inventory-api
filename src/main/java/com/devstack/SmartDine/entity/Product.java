@@ -54,7 +54,7 @@ public class Product {
     private ProductStatus status = ProductStatus.ACTIVE;
     @Column(nullable = false)
     @Builder.Default
-    private Boolean availableForOrder;
+    private Boolean availableForOrder=true;
     private String imageUrl;
     @CreationTimestamp
     private LocalDateTime createdAt;
