@@ -44,5 +44,8 @@ public class StockReceipt {
     private ReceiptStatus status = ReceiptStatus.PENDING;
     @OneToMany(mappedBy = "stockReceipt", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
     private List<StockReceiptItem> items;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "supplier_id")
+    private Supplier supplier;
 
 }
