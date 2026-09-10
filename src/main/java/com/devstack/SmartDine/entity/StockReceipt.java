@@ -10,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -41,4 +42,7 @@ public class StockReceipt {
     @Column(nullable = false)
     @Builder.Default
     private ReceiptStatus status = ReceiptStatus.PENDING;
+    @OneToMany(mappedBy = "stockReceipt", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    private List<StockReceiptItem> items;
+
 }
