@@ -9,26 +9,33 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * Represents a product category (e.g., Bakery, Rice Dishes, Beverages).
+ * Restaurant / Branch entity.
+ * Each branch may have its own inventory.
  */
 @Entity
-@Table(name = "categories")
+@Table(name = "restaurants")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Category {
+public class Restaurant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 100)
-    private String name; // e.g., "Bakery", "Rice Dishes", "Juices"
+    @Column(nullable = false, length = 150)
+    private String name;
 
     @Column(length = 255)
-    private String description;
+    private String address;
+
+    @Column(length = 20)
+    private String phone;
+
+    @Column(length = 100)
+    private String email;
 
     @Column(nullable = false)
     @Builder.Default
@@ -41,6 +48,6 @@ public class Category {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY)
     private List<Product> products;
 }

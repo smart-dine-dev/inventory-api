@@ -7,8 +7,11 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
+/**
+ * Supplier who provides raw materials or finished products to the restaurant.
+ */
+@Entity
 @Table(name = "suppliers")
 @Getter
 @Setter
@@ -18,8 +21,8 @@ import java.util.UUID;
 public class Supplier {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false, length = 150)
     private String name;
