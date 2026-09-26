@@ -60,6 +60,4 @@ public class StockReceipt {
 
     @OneToMany(mappedBy = "stockReceipt", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<StockReceiptItem> items;
-
-
 }

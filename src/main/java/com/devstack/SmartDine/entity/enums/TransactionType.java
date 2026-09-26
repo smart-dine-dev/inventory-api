@@ -1,9 +1,10 @@
 package com.devstack.SmartDine.entity.enums;
 
 public enum TransactionType {
-    ORDER,
-    RECEIPT,
-    WASTAGE,
-    MANUAL_ADJUSTMENT,
-    RETURN
+    STOCK_IN,        // Received new stock
+    STOCK_OUT,       // Used for an order
+    WASTAGE,         // Spoiled / wasted
+    ADJUSTMENT_IN,   // Manual positive correction
+    ADJUSTMENT_OUT,  // Manual negative correction
+    RETURN_TO_SUPPLIER // Returned to supplier
 }

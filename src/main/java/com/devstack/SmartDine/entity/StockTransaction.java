@@ -57,5 +57,4 @@ public class StockTransaction {
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime createdAt;
-
 }
